@@ -1,15 +1,12 @@
 #!/usr/bin/env bash
 set -e -x
 
-BIN_DIR="${PREFIX}/bin"
-HEADER_DIR="${PREFIX}/include"
-LIB_DIR="${PREFIX}/lib"
+mkdir -p build && cd build
+cmake -GNinja \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_INSTALL_PREFIX="$PREFIX" \
+    -DWITH_MYSQLCOMPAT=1 \
+    -DINSTALL_LIBDIR=lib \
+    ../
 
-mkdir -p "$BIN_DIR"
-cp bin/* "$BIN_DIR"
-
-mkdir -p "$HEADER_DIR"
-cp -a include/mariadb "$HEADER_DIR"
-
-mkdir -p "$LIB_DIR"
-cp -a lib/mariadb "$LIB_DIR"
+ninja install

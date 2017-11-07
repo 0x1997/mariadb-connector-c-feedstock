@@ -3,10 +3,10 @@ package:
   version: 3.0.2
 
 source:
-  url: https://downloads.mariadb.com/Connectors/c/connector-c-3.0.2/mariadb-connector-c-3.0.2-linux-x86_64.tar.gz
-  md5: bf7cd1b0254ad8032de7607e2d6c8702
-  sha1: bfbfd8e3e765532b60833f1c1079e0c676959964
-  sha256: 24670e783f70775dd2bf60403598ba1124c88bc745ab06c00475ca0faf333da0
+  url: https://downloads.mariadb.com/Connectors/c/connector-c-3.0.2/mariadb-connector-c-3.0.2-src.tar.gz
+  md5: 2eb5ba004ac105eebb538ead352c0c78
+  sha1: bc1fd6c20610822abdb67fe300bd723fe9225e50
+  sha256: 518d14b8d77838370767d73f9bf1674f46232e1a2a34d4195bd38f52a3033758
 
 build:
   # If the installation is complex, or different between Unix and Windows, use
@@ -15,5 +15,10 @@ build:
   # "skip: True  # [not win]" to limit to Windows.
 
 requirements:
+  build:
+    - toolchain
+    - cmake
+    - ninja
+    - openssl 1.0.*
   run:
     - openssl 1.0.*
