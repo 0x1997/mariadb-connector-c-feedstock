@@ -1,0 +1,19 @@
+package:
+  name: mariadb-connector-c
+  version: 3.0.2
+
+source:
+  url: https://downloads.mariadb.com/Connectors/c/connector-c-3.0.2/mariadb-connector-c-3.0.2-linux-x86_64.tar.gz
+  md5: bf7cd1b0254ad8032de7607e2d6c8702
+  sha1: bfbfd8e3e765532b60833f1c1079e0c676959964
+  sha256: 24670e783f70775dd2bf60403598ba1124c88bc745ab06c00475ca0faf333da0
+
+build:
+  # If the installation is complex, or different between Unix and Windows, use
+  # separate bld.bat and build.sh files instead of this key.  Add the line
+  # "skip: True  # [py<35]" (for example) to limit to Python 3.5 and newer, or
+  # "skip: True  # [not win]" to limit to Windows.
+
+requirements:
+  run:
+    - openssl 1.0.*
